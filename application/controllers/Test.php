@@ -20,7 +20,10 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-		echo "Test/index 파일입니다."; 
+	//	echo "Test/index 파일입니다."; 
 	//	$this->load->view('welcome_message');
+	//	$this->load->view('test');
 	}
+
+
 }
