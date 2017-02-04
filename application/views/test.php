@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>지도 생성하기</title>
-    
+  
+
 </head>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,6 +26,7 @@
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
 
+<<<<<<< HEAD
       body {
         margin-top:25px;
       }
@@ -115,13 +117,18 @@
         margin-left: 12px;
         margin-top:10px;
       }
+=======
+
+>>>>>>> a3e78b02e4582e16848dcbc1a78fc9e6540d4330
 
 </style>
 
 </head>
 
 <body>
+
 <!-- 지도를 표시할 div 입니다 -->
+<<<<<<< HEAD
 
 <div class ="container">
     <header>
@@ -171,14 +178,34 @@
 
 </div>
 
+=======
+<div style="width:780px; height:700px; position : absolute;"> 
+<div id="map" style="width:100%; height:600px;"></div>
+
+<a href="javascript:;" onclick="test()" style="z-index: -1;">
+  <div id="test" style="visibility: visible; background-color: #FF0000; width: 300px; margin-top: -100px; height: 400px; z-index: -1; position: absolute;"></div>
+</a>
+</div>
+
+
+>>>>>>> a3e78b02e4582e16848dcbc1a78fc9e6540d4330
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+
 <script>
 
+function test() {
 
-var lat_ar = ['37.57770795141244', '37.57165517322067', '37.57741959814934', '37.5707893660768', '37.571799341978114'];
-var lng_ar = ['126.97720010187147', '127.00835400352203', '126.97701905922823', '126.98354121886416', '126.99178181809195'];
-var name_ar = ['창덕궁', '동대문', '경복궁', '종각', '종로3가'];
+  $('#test').attr('style', 'visibility: hidden');
+
+}
+
+var lat = <?php echo json_encode($lat)?>; 
+var lng = <?php echo json_encode($lng)?>;
+var idx = <?php echo json_encode($idx)?>;
 
 var mapContainer = document.getElementById('map'), // 지도의 중심좌표
     mapOption = { 
@@ -188,12 +215,12 @@ var mapContainer = document.getElementById('map'), // 지도의 중심좌표
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-for (var i = 0; i<= 4; i++) {
+for (var i = 0; i<= 3; i++) {
 
 // 지도에 마커를 표시합니다 
 var marker = new daum.maps.Marker({
   map: map, 
-  position: new daum.maps.LatLng(lat_ar[i], lng_ar[i])
+  position: new daum.maps.LatLng(lat[i], lng[i])
 });
 
 
@@ -202,7 +229,7 @@ var marker = new daum.maps.Marker({
 // 별도의 이벤트 메소드를 제공하지 않습니다 
 var content = '<div class="wrap">' + 
 '    <div class="info">' + 
-'        <div class="title">' + name_ar[i]  + 
+'        <div class="title"> dd' + 
 '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
 '        </div>' + 
 '        <div class="body">' + 
@@ -212,7 +239,7 @@ var content = '<div class="wrap">' +
 '            <div class="desc">' + 
 '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
 '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-'                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+'                <div><a href="http://localhost:8888/index.php/detail/'+ idx[i] +'" class="link">홈페이지</a></div>' + 
 '            </div>' + 
 '        </div>' + 
 '    </div>' +    
