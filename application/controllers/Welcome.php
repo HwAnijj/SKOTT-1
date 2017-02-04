@@ -36,6 +36,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('web_test.php');
 	}
 
+	public function ajax_test() {
+
+		$result = "dd";
+
+
+		return $result;
+	}
 
 
 

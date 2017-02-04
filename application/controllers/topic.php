@@ -21,6 +21,7 @@ class Topic extends CI_Controller {
     	$this->load->view('head');
     	$this->load->view('footer');
         $this->load->view('topic');
+
     }
 
     function main($id){

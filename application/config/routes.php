@@ -54,5 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default'] ='welcome/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
 $route['welcome/(:any)'] ='welcome/$1';
+
+
+$route['ajax_test'] ='welcome/ajax_test';
