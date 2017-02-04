@@ -1,7 +1,4 @@
-<?
-$message = "<script>document.write(message);</script>"
-echo $message;
-?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -58,3 +58,6 @@ $route['welcome/(:any)'] ='welcome/$1';
 
 
 $route['ajax_test'] ='welcome/ajax_test';
+
+
+

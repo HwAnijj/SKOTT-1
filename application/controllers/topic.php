@@ -1,36 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Topic extends CI_Controller {
 
-	// public function _remap($method) {
-	// 	if($method =='song')
-	// 	{
-	// 		$this->$method();
-	// 	}
-	// 	else
-	// 	{
-	// 		$this->default_method();
-	// 	}
-	// }
+	function __construct() {
+		parent::__construct ();
+	}
 
-	// public function _output($output)
-	// {
-	//     echo $output;
-	// }
+	function index(){
 
-    function index(){
-    	$this->load->view('head');
-    	$this->load->view('footer');
-        $this->load->view('topic');
+		$this->load->view('test');
 
-    }
+	}
 
-    function main($id){
-    	$this->load->view('head');
-    	$this->load->view('footer');
+	function main($id){
+		$this->load->view('head');
+		$this->load->view('footer');
 
-    	$data = array('id'=>$id);
-        $this->load->view('main',$data);
-    }
+		$data = array('id'=>$id);
+		$this->load->view('main',$data);
+	}
 }
 ?>
 
