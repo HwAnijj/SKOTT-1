@@ -7,7 +7,34 @@ class Topic extends CI_Controller {
 
 	function index(){
 
-		$this->load->view('test');
+		$this->load->model('mymodel');
+			
+		$t = $this->mymodel->test();	
+
+		$lat = array();
+		$lng = array();
+		$name = array();
+
+		for ($i=0; $i<count($t); $i++) {
+
+			$lat[] = $t[$i]->lat;
+			$lng[] = $t[$i]->lng;
+			$name[] = $t[$i]->name;
+
+		}
+
+
+
+		$this->load->view('test', 
+			array(
+				'lat' => $lat,
+				'lng' => $lng,
+				'name' => $name,
+
+
+
+				)
+		);
 
 	}
 
@@ -18,6 +45,7 @@ class Topic extends CI_Controller {
 		$data = array('id'=>$id);
 		$this->load->view('main',$data);
 	}
+
 }
 ?>
 

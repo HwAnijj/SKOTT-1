@@ -30,12 +30,12 @@
 <div id="map" style="width:100%;height:600px;"></div>
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701"></script>
+
 <script>
 
-
-var lat_ar = ['37.57770795141244', '37.57165517322067', '37.57741959814934', '37.5707893660768', '37.571799341978114'];
-var lng_ar = ['126.97720010187147', '127.00835400352203', '126.97701905922823', '126.98354121886416', '126.99178181809195'];
-var name_ar = ['창덕궁', '동대문', '경복궁', '종각', '종로3가'];
+var lat = <?php echo json_encode($lat)?>; 
+var lng = <?php echo json_encode($lng)?>;
+var name = <?php echo json_encode($name)?>;
 
 var mapContainer = document.getElementById('map'), // 지도의 중심좌표
     mapOption = { 
@@ -45,12 +45,12 @@ var mapContainer = document.getElementById('map'), // 지도의 중심좌표
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-for (var i = 0; i<= 4; i++) {
+for (var i = 0; i<= 3; i++) {
 
 // 지도에 마커를 표시합니다 
 var marker = new daum.maps.Marker({
   map: map, 
-  position: new daum.maps.LatLng(lat_ar[i], lng_ar[i])
+  position: new daum.maps.LatLng(lat[i], lng[i])
 });
 
 
@@ -59,7 +59,7 @@ var marker = new daum.maps.Marker({
 // 별도의 이벤트 메소드를 제공하지 않습니다 
 var content = '<div class="wrap">' + 
 '    <div class="info">' + 
-'        <div class="title">' + name_ar[i]  + 
+'        <div class="title">' + name[i]  + 
 '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
 '        </div>' + 
 '        <div class="body">' + 
