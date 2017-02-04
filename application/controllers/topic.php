@@ -6,8 +6,6 @@ class Topic extends CI_Controller {
 	}
 
 	function index(){
-
-		$this->load->model('mymodel');
 			
 		$t = $this->mymodel->test();	
 
@@ -19,31 +17,29 @@ class Topic extends CI_Controller {
 
 			$lat[] = $t[$i]->lat;
 			$lng[] = $t[$i]->lng;
-			$name[] = $t[$i]->name;
+			$idx[] = $t[$i]->idx;
 
 		}
-
-
 
 		$this->load->view('test', 
 			array(
 				'lat' => $lat,
 				'lng' => $lng,
-				'name' => $name,
-
-
-
+				'idx' => $idx,
 				)
 		);
 
 	}
 
-	function main($id){
-		$this->load->view('head');
-		$this->load->view('footer');
+	function detail($url) {
 
-		$data = array('id'=>$id);
-		$this->load->view('main',$data);
+		$result = $this->mymodel->detail($url);
+
+		print_r($result);
+
+
+
+
 	}
 
 }

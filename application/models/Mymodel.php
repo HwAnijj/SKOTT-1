@@ -23,6 +23,18 @@ class Mymodel extends CI_Model
 
 	}
 
+	function detail($idx) {
+
+		$this->db->select('*');
+		$this->db->from('detail');
+
+		$this->db->where('idx', $idx);
+
+		return $this->db->get()->row();
+	}
+
+
+
 
 
 
