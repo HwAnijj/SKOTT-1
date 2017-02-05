@@ -56,9 +56,10 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['welcome/(:any)'] ='welcome/$1';
 
+
+
+
 $route['detail/(:num)'] ='topic/detail/$1';
-
-
 $route['ajax_test'] ='welcome/ajax_test';
 
 

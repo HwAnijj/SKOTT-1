@@ -27,99 +27,100 @@
     .info .link {color: #5085BB;}
 
 <<<<<<< HEAD
-      body {
-        margin-top:25px;
-      }
 
       * {
         box-sizing:border-box;
       }
 
       .container {
-        width :98%;
-        height :90%;
+        width :95vw;
+        height :95vh;
         border :2px solid red;
-        margin:auto;
+
       }
 
       header {
-        border-bottom: 1px solid gray;
+        font-size:15pt;
+        border : 3px solid red;
         padding :10px;
         display:flex;
         flex-direction:row;
-        margin-top : 30px;
+        margin-top : 20px;
+
+      }
+      nav {
+        display:flex;
+        flex-direction:row;
       }
 
       article {
-        float:left;
+/*         border : 3px solid black;*/
+         width:70vw;
+         height:80vh;
       }
 
       aside {
-        float:left;
+/*        border : 1px solid black;*/
+         width:30vw;
+         height:80vh;
       }
 
       #div_Logo {
-        flex-basis:150px;
-        border:2px solid gray;
-        padding :15px;
-        margin-right :200px;
+        margin-right:10vw;
+        padding:10px;
+        border:5px solid gray;
+        flex-shrink: 1;
       }
 
       #div_search {
-        margin-right:20px;
-        margin-top:10px;
+/*        border:5px solid gray;*/
+        margin-top:3px;
+        flex-shrink: 1;
       }
 
       #div_Login {
-        margin-left:500px;
-        border:2px solid gray;
-        padding :15px;
+         margin-left:25vw;
+        border:5px solid gray;
+        flex-shrink: 1;
       }
 
       #map {
-        width:1200px;
-        height:800px;
-      }
-      #course {
-        border:3px solid red;
-        width:80%;
-        height:80%;
-        display:flex;
-        flex-direction:column;
+         position: absolute;
+         width:64.9vw;
+         height:79.5vh;
       }
 
-      #img_div_course {
-        float :left;
-        margin-right: 30px;
-      } 
+      #course {
+        border:2px solid black;
+        margin-left: -3px;
+      }
+
+      .course_title {
+        border:1px solid black;
+        text-align: center;
+        font-size: 18pt;
+      }
+
+      .div_course {
+        display :flex;
+        flex-direction:row;
+      }
 
       .div_content {
-/*        border :5px solid black;*/
-        line-height: 50px;
-        font-size:15px;
-      }
-
-      .div_course:nth-child(1) {
-/*        margin : 30px;
-        border :5px solid black;
-        padding:20px;*/
-        text-align: center;
-        font-size:25px;
-      }
-      .div_course:nth-child(2) {
-        background-color: powderblue;
-        padding:5px;
-
+        margin-top:15px;
+        font-size: 10pt;
+        line-height: 3em;
       }
 
       #p_star {
-        font-size:25px;
-        margin-left: 12px;
-        margin-top:10px;
+        font-size: 20pt;
+        margin-left: 10px;
       }
-=======
 
->>>>>>> a3e78b02e4582e16848dcbc1a78fc9e6540d4330
+/*      #course:nth-child(2) {
+          margin-top:10px;
+      }*/
+
 
 </style>
 
@@ -128,64 +129,97 @@
 <body>
 
 <!-- 지도를 표시할 div 입니다 -->
-<<<<<<< HEAD
 
 <div class ="container">
     <header>
 
-<!--       <div id = "div_Logo">
+      <div id = "div_Logo">
         로고이미지
       </div>
 
       <div id="div_search">
-        <input type="text" class="form_control" id="exampleInputAmount" placeholder="원하시는 지역명/관광지명을 입력하세요." style = "width:500px">
-        </div>
-       <button onclick="ajax_test()" class="btn btn-primary" style ="width:100px">찾아보기</button>
+        <input type="text" class="form_control" id="exampleInputAmount" placeholder="원하시는 지역명/관광지명을 입력하세요." style = "width:30vw">
+      </div>
+       <button onclick="ajax_test()" class="btn btn-primary" style ="width:10vw; height:4vh">찾아보기</button>
 
-      <div id = "song">
+      <div id = "div_Login">
         Facebook Login
-      </div> -->
+      </div>
 
     </header>
     <nav id = "nav_body">
+
       <article>
-<!--         <div id="map">
-        </div> -->
+          <div id="map"></div>
       </article>
 
       <aside>
-        <div id="course">
- <!--            <div class = "div_course">
-              추천코스
-            </div> -->
+        <div id="course" style="overflow:scroll" >
+            <div class = "course_title">
+            추천코스
+            </div>
             <div class = "div_course">
-  <!--             <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
-              <div class ="div_content">
-                <ul>
-                  <li>관광지명 :</li>
-                  <li>주소 :</li>
-                  <li>내용 :</li>
-                </ul>
-                <p id="p_star">
-                ★★★★☆ 
-                </p>
- -->
-              </div>
-            </div >
+              <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
+                  <div class ="div_content">
+
+                  <ul>
+                    <li>관광지명 :</li>
+                    <li>주소 :</li>
+                    <li>내용 :</li>
+                  </ul>
+
+                  </div>
+            </div>
+                  <p id="p_star">
+                  ★★★★☆ 
+                  </p>
+
+            <div class = "div_course">
+              <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
+                  <div class ="div_content">
+
+                  <ul>
+                    <li>관광지명 :</li>
+                    <li>주소 :</li>
+                    <li>내용 :</li>
+                  </ul>
+
+                  </div>
+            </div>
+                  <p id="p_star">
+                  ★★★★☆ 
+                  </p>
+
+                              <div class = "div_course">
+              <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
+                  <div class ="div_content">
+
+                  <ul>
+                    <li>관광지명 :</li>
+                    <li>주소 :</li>
+                    <li>내용 :</li>
+                  </ul>
+
+                  </div>
+            </div>
+                  <p id="p_star">
+                  ★★★★☆ 
+                  </p>
+
+
+        </div>
+
+
         </div>
       </aside>
+
     </nav>
 
-</div>
-
 =======
-<div style="width:780px; height:700px; position : absolute;"> 
-<div id="map" style="width:100%; height:600px;"></div>
 
-<a href="javascript:;" onclick="test()" style="z-index: -1;">
-  <div id="test" style="visibility: visible; background-color: #FF0000; width: 300px; margin-top: -100px; height: 400px; z-index: -1; position: absolute;"></div>
-</a>
-</div>
+<!-- <a href="javascript:;" onclick="test()" style="z-index: -1;">
+  <div id="test" style="visibility: visible; background-color: #FF0000; width: 300px; margin-top: -100px; height: 400px; z-index: -1; position: absolute;">
+</a> -->
 
 
 >>>>>>> a3e78b02e4582e16848dcbc1a78fc9e6540d4330

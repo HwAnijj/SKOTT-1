@@ -7,93 +7,148 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<style>
-      #jb-container {
-        width: 1400px;
-        margin: 0px auto;
-      }
-      #jb-header {
-        padding: 5px;
-        margin-bottom: 10px;
-        border: 1px solid #bcbcbc;
-        height :40px;
-        text-align: right;
-      }
-      #jb-content {
-        width: 1400px;
-        padding: 20px;
-        margin-bottom: 20px;
-        float: left;
-        border: 1px solid #bcbcbc;
-      }
-      #jb-footer {
-/*        clear: both;*/
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-        background-color: black;
-        opacity:0.7;
-        height:120px;
+
+      * {
+        box-sizing:border-box;
       }
 
-/*      #jb-footerBox {
-      	display :flex;
-        background-color: white;
-        height:60px;
-        width:600px;
-        margin:auto;
-        align-items:center;
-        margin-top:25px;
+      .container {
+        width :95vw;
+        height :95vh;
+        border :2px solid red;
+
+      }
+
+      header {
+        font-size:25pt;
+        border : 3px solid red;
+        padding :10px;
+        display:flex;
+        flex-direction:row;
+        margin-top : 20px;
+
+      }
+/*
+      article {
+        float:left;
+      }
+
+      aside {
+        float:left;
+      }
+*/
+      #div_Logo {
+/*        flex-basis:150px;*/
+        margin-right:250px;
+        padding:10px;
+        border:5px solid gray;
+      }
+
+      #div_search {
+        border:5px solid gray;
+      }
+
+      #div_Login {
+         margin-left:600px;
+        border:5px solid gray;
+      }
+/*
+      #map {
+        width:1200px;
+        height:800px;
+      }
+      #course {
+        border:3px solid red;
+        width:80%;
+        height:80%;
+        display:flex;
+        flex-direction:column;
+      }
+
+      #img_div_course {
+        float :left;
+        margin-right: 30px;
+      } 
+
+      .div_content {
+        border :5px solid black;
+        line-height: 50px;
+        font-size:15px;
+      }
+
+      .div_course:nth-child(1) {
+        margin : 30px;
+        border :5px solid black;
+        padding:20px;
+        text-align: center;
+        font-size:25px;
+      }
+      .div_course:nth-child(2) {
+        background-color: powderblue;
+        padding:5px;
+
+      }
+
+      #p_star {
+        font-size:25px;
+        margin-left: 12px;
+        margin-top:10px;
       }*/
-
-      .main_text {
-      	display:flex;
-      	display:inline;
-      	margin-right :60px;
-      	font-size :20px;
-      	flex-shrink:1;
-		margin-bottom:100px;
-      }
-
-      .form-inline {
-      	text-align: center;
-      	margin-top :35px;
-      }
-
-	  .main_text:nth-child(1) {
-		 	margin-right :690px;
-			}
-
-	  .main_text:nth-child(2) {
-
-			}
     </style>
   </head>
 
   <body>
-    <div id="jb-container">
-      <div id="jb-header">
-        <div class="main_text">로고</div>
-        <div class="main_text"><a href ="web_map">지도보기</a></div>
-        <div class="main_text">추천코스</div>
-        <div class="main_text">내위치</div>
-        <div class="main_text">FaceBook Login</div>
-     </div>
 
-      <div id="jb-content">
-        <img src = "/static/image/plane.jpg" width="105%" height="470px">
-            <div id="jb-footer">
-            	<form class="form-inline">
-					  <div class="form-group">
-					    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-					    	<div class="input-group">
-					    			  <input type="text" class="form-control" id="exampleInputAmount" placeholder="원하시는 지역명/관광지명을 입력하세요." style = "width:500px">
-					    	     <div class="input-group-addon">.00</div>
-					   	    </div>
-					 </div>
-					  <button type="submit" class="btn btn-primary">찾아보기</button>
-				</form>
-            </div>
+<body>
+
+<!-- 지도를 표시할 div 입니다 -->
+
+<div class ="container">
+    <header>
+
+      <div id = "div_Logo">
+        로고이미지
       </div>
 
-    </div>
+      <div id="div_search">
+        <input type="text" class="form_control" id="exampleInputAmount" placeholder="원하시는 지역명/관광지명을 입력하세요." style = "width:700px">
+        </div>
+       <button onclick="ajax_test()" class="btn btn-primary" style ="width:8vw">찾아보기</button>
+
+      <div id = "div_Login">
+        Facebook Login
+      </div>
+
+    </header>
+    <nav id = "nav_body">
+      <article>
+<!--         <div id="map">
+        </div> -->
+      </article>
+
+      <aside>
+        <div id="course">
+            <div class = "div_course">
+              추천코스
+            </div> -->
+            <div class = "div_course">
+  <!--             <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
+              <div class ="div_content">
+                <ul>
+                  <li>관광지명 :</li>
+                  <li>주소 :</li>
+                  <li>내용 :</li>
+                </ul>
+                <p id="p_star">
+                ★★★★☆ 
+                </p>
+ -->
+              </div>
+            </div >
+        </div>
+      </aside>
+    </nav>
+
+</div>
   </body>
 </html>
