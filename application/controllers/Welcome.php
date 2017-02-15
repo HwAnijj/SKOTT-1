@@ -21,9 +21,33 @@ class Welcome extends CI_Controller {
 		$this->load->view('csstest.php');
 	}
 
-	public function submit()
+	public function loadSearch()
 	{
-		$this->load->view('submit.php');
+		$this->load->view('loadSearch.php');
+	}
+
+	public function headertest()
+	{
+		// $this->load->view('headertest.php');
+
+		$t = $this->mymodel->dbtest();	
+
+		$idx = array();
+		$name = array();
+
+		for ($i=0; $i<count($t); $i++) {
+
+			$idx[] = $t[$i]->idx;
+			$name[] = $t[$i]->name;
+
+		}
+
+		$this->load->view('headertest', 
+			array(
+				'idx' => $idx,
+				'name' => $name,
+				)
+		);	
 	}
 
 	public function web_map()

@@ -168,20 +168,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-// 지도에 표시할 원을 생성합니다
-var circle = new daum.maps.Circle({
-    center : new daum.maps.LatLng(36.55658134553188, 127.10115509947225),  // 원의 중심좌표 입니다 
-    radius: 25000, // 미터 단위의 원의 반지름입니다 
-    strokeWeight: 5, // 선의 두께입니다 
-    strokeColor: '#75B8FA', // 선의 색깔입니다
-    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-    strokeStyle: 'dashed', // 선의 스타일 입니다
-    fillColor: '#CFE7FF', // 채우기 색깔입니다
-    fillOpacity: 0.7  // 채우기 불투명도 입니다   
-}); 
-
-// 지도에 원을 표시합니다 
-circle.setMap(map);  
 
 // 지도를 클릭한 위치에 표출할 마커입니다
 var marker = new daum.maps.Marker({ 
@@ -195,24 +181,6 @@ marker.setMap(map);
 // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
 
 
-daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    
-    // 클릭한 위도, 경도 정보를 가져옵니다 
-    var latlng = mouseEvent.latLng; 
-    
-    // 마커 위치를 클릭한 위치로 옮깁니다
-    marker.setPosition(latlng);
-    
-    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-    message += '경도는 ' + latlng.getLng() + ' 입니다';
-
-   
-    var resultDiv = document.getElementById('song'); 
-    resultDiv.innerHTML = message;
-
-		}
-
-});
 
 </script>
 </html>

@@ -1,154 +1,54 @@
-<!doctype html>
-<html lang="ko">
-  <head>
+<!DOCTYPE html>
+<html>
+<head>
     <meta charset="utf-8">
-    <title>CSS Tutorial | Layout</title>
+    <title>지도 생성하기</title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<style>
-
-      * {
-        box-sizing:border-box;
-      }
-
-      .container {
-        width :95vw;
-        height :95vh;
-        border :2px solid red;
-
-      }
-
-      header {
-        font-size:25pt;
-        border : 3px solid red;
-        padding :10px;
-        display:flex;
-        flex-direction:row;
-        margin-top : 20px;
-
-      }
-/*
-      article {
-        float:left;
-      }
-
-      aside {
-        float:left;
-      }
-*/
-      #div_Logo {
-/*        flex-basis:150px;*/
-        margin-right:250px;
-        padding:10px;
-        border:5px solid gray;
-      }
-
-      #div_search {
-        border:5px solid gray;
-      }
-
-      #div_Login {
-         margin-left:600px;
-        border:5px solid gray;
-      }
-/*
-      #map {
-        width:1200px;
-        height:800px;
-      }
-      #course {
-        border:3px solid red;
-        width:80%;
-        height:80%;
-        display:flex;
-        flex-direction:column;
-      }
-
-      #img_div_course {
-        float :left;
-        margin-right: 30px;
-      } 
-
-      .div_content {
-        border :5px solid black;
-        line-height: 50px;
-        font-size:15px;
-      }
-
-      .div_course:nth-child(1) {
-        margin : 30px;
-        border :5px solid black;
-        padding:20px;
-        text-align: center;
-        font-size:25px;
-      }
-      .div_course:nth-child(2) {
-        background-color: powderblue;
-        padding:5px;
-
-      }
-
-      #p_star {
-        font-size:25px;
-        margin-left: 12px;
-        margin-top:10px;
-      }*/
-    </style>
-  </head>
-
-  <body>
-
+    
+</head>
 <body>
-
 <!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:650px;"></div>
+<p><em>지도를 클릭해주세요!</em></p> 
+<div id="clickLatlng"></div>
 
-<div class ="container">
-    <header>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701"></script>
 
-      <div id = "div_Logo">
-        로고이미지
-      </div>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new daum.maps.LatLng(37.565446040775775, 126.98075795787096), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
 
-      <div id="div_search">
-        <input type="text" class="form_control" id="exampleInputAmount" placeholder="원하시는 지역명/관광지명을 입력하세요." style = "width:700px">
-        </div>
-       <button onclick="ajax_test()" class="btn btn-primary" style ="width:8vw">찾아보기</button>
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new daum.maps.Map(mapContainer, mapOption); 
+// 지도를 클릭한 위치에 표출할 마커입니다
+var marker = new daum.maps.Marker({ 
+    // 지도 중심좌표에 마커를 생성합니다 
+    position: map.getCenter() 
+}); 
+// 지도에 마커를 표시합니다
+marker.setMap(map);
 
-      <div id = "div_Login">
-        Facebook Login
-      </div>
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng; 
+    
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker.setPosition(latlng);
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    var resultDiv = document.getElementById('clickLatlng'); 
+    resultDiv.innerHTML = message;
+    
+});
 
-    </header>
-    <nav id = "nav_body">
-      <article>
-<!--         <div id="map">
-        </div> -->
-      </article>
-
-      <aside>
-        <div id="course">
-            <div class = "div_course">
-              추천코스
-            </div> -->
-            <div class = "div_course">
-  <!--             <img id ="img_div_course" src="/static/image/test.jpg" width="150px" height="150px">
-              <div class ="div_content">
-                <ul>
-                  <li>관광지명 :</li>
-                  <li>주소 :</li>
-                  <li>내용 :</li>
-                </ul>
-                <p id="p_star">
-                ★★★★☆ 
-                </p>
- -->
-              </div>
-            </div >
-        </div>
-      </aside>
-    </nav>
-
-</div>
-  </body>
+</script>
+</body>
 </html>
